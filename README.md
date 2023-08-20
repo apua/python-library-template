@@ -15,6 +15,11 @@ To re-install:
 pip install --force-reinstall git+https://github.com/apua/python-library-template@dev#subdirectory=mylib
 ```
 
+Uninstall all:
+```
+pip freeze | xargs pip uninstall -y
+```
+
 Ref:
 
 + https://pip.pypa.io/en/stable/cli/pip_install/
@@ -85,3 +90,27 @@ Take "src-layout".
 Ref:
 
 + https://setuptools.pypa.io/en/latest/userguide/package_discovery.html#src-layout
+
+----
+
+List dependencies directly, instead of from file as following:
+```toml
+[project]
+dynamic = ["dependencies", "optional-dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = { file = ["requirements.txt"] }
+optional-dependencies = { tests = { file = ["test_requirements.txt"] } }
+```
+
+To install dependencies only, remove itself after installing.
+
+To install with optional dependencies, declare package name:
+```
+pip install --force-reinstall mylib[test]@git+https://github.com/apua/python-library-template@dev#subdirectory=mylib
+```
+
+Ref:
+
++ https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#dynamic
++ https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html#dynamic-metadata

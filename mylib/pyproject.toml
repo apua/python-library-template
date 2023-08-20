@@ -1,6 +1,8 @@
 [project]
 name = 'mylib'
 version = '0.1'
+dependencies = ['requests']
+optional-dependencies = { test = ['pytest'] }
 
 # keys:
 # - authors
