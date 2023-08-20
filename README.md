@@ -118,8 +118,12 @@ Ref:
 ----
 
 We don't create commands from `[project.scripts]` automatically.
-In our case (eg: `module load`), an executable maintaines its own venv,
-thus the executable always outside from the Python package.
+In our case (eg: `module load`), an executable should maintain its own venv
+rather than installed in shared environment, eventually the executable
+always outside from the Python package installed in a venv.
+
+In general, the executable is installed system-wide,
+different from our internal developmemt case.
 
 `[project.scripts]` is `[project.entry-points.console_scripts]`.
 
@@ -145,3 +149,33 @@ Ref:
 + https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#entry-points
 + https://packaging.python.org/en/latest/specifications/entry-points/#entry-points
 + https://docs.python.org/3/library/importlib.metadata.html#entry-points
+
+----
+
+Place unit tests at `tests/`.
+
+`tests/` is not a Python package and doesn't include `__init__.py`.
+
+During development or running PR verifier, install the Python package and run pytest:
+```
+$ pip install -e mylib[test]
+$ pytest -s
+```
+
+Below 2 configurations are optional.
+
+Without installation, pytest needs additional information to address source code location:
+```toml
+[tool.pytest.ini_options]
+pythonpath = "src"
+```
+
+Also set an additional opt to make pytest take new way for auto discovery.
+```toml
+[tool.pytest.ini_options]
+addopts = ["--import-mode=importlib"]
+```
+
+Ref:
+
++ https://pytest.org/en/7.4.x/explanation/goodpractices.html#tests-outside-application-code
