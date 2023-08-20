@@ -1,0 +1,25 @@
+[project]
+name = "mylib"
+version = "0.1"
+requires-python = ">=3.10"
+dependencies = ["requests"]
+optional-dependencies = {test = ["pytest"]}
+
+# keys:
+# - authors
+# - classifiers
+# - dependencies
+# - description
+# - dynamic
+# - entry-points
+# - gui-scripts
+# - keywords
+# - license
+# - maintainers
+# - name
+# - optional-dependencies
+# - readme
+# - requires-python
+# - scripts
+# - urls
+# - version
