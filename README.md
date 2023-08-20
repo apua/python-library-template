@@ -3,7 +3,28 @@
 This template focus on developmemt of internal Python package,
 in such case the package description is not important.
 
-----
+
+## Quick start
+
+Setup a venv:
+```
+$ python3.10 -m venv venv
+$ source venv/bin/activate.fish
+```
+
+Install "mylib", released v0.1 by git tag, with "test" dependencies:
+```
+$ pip install mylib[test]@git+https://github.com/apua/python-library-template@release-0.1#subdirectory=mylib
+```
+
+Run test:
+```
+$ pytest -s
+mylib/tests/test_version.py 0.1
+```
+
+
+## Learn
 
 To install from `dev` branch:
 ```
