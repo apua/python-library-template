@@ -32,7 +32,7 @@ def get_version() -> str | None:
         return f'{version}-{sha[:7]}'
     else:
         # VCS mode.
-        if direct_url['vcs_info']['requested_revision'] == 'release':
+        if direct_url['vcs_info']['requested_revision'].startswith('release'):
             return version
         else:
             sha = direct_url['vcs_info']['commit_id']

@@ -5,9 +5,14 @@ in such case the package description is not important.
 
 ----
 
-To install:
+To install from `dev` branch:
 ```
 pip install git+https://github.com/apua/python-library-template@dev#subdirectory=mylib
+```
+
+To install from `release-0.1` tag:
+```
+pip install git+https://github.com/apua/python-library-template@release-0.1#subdirectory=mylib
 ```
 
 To re-install:
@@ -15,7 +20,7 @@ To re-install:
 pip install --force-reinstall git+https://github.com/apua/python-library-template@dev#subdirectory=mylib
 ```
 
-Uninstall all:
+Uninstall all Python packages:
 ```
 pip freeze | xargs pip uninstall -y
 ```
