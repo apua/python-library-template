@@ -10,6 +10,11 @@ To install:
 pip install git+https://github.com/apua/python-library-template@dev#subdirectory=mylib
 ```
 
+To re-install:
+```
+pip install --force-reinstall git+https://github.com/apua/python-library-template@dev#subdirectory=mylib
+```
+
 Ref:
 
 + https://pip.pypa.io/en/stable/cli/pip_install/
