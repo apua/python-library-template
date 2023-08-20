@@ -114,3 +114,34 @@ Ref:
 
 + https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#dynamic
 + https://setuptools.pypa.io/en/latest/userguide/pyproject_config.html#dynamic-metadata
+
+----
+
+We don't create commands from `[project.scripts]` automatically.
+In our case (eg: `module load`), an executable maintaines its own venv,
+thus the executable always outside from the Python package.
+
+`[project.scripts]` is `[project.entry-points.console_scripts]`.
+
+`[project.entry-points."..."]` is not "entry points for CLI".
+Instead, it is metadata read by `importlib.metadata`.
+
+```toml
+# [project]
+# entry-points = {'my.group' = {mykey = 'myvalue'}}
+
+[project.entry-points.'my.group']
+mykey = 'myvalue'
+```
+
+```python
+>>> from importlib.metadata import entry_points
+>>> entry_points(group='my.group')
+[EntryPoint(name='mykey', value='myvalue', group='my.group')]
+```
+
+Ref:
+
++ https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#entry-points
++ https://packaging.python.org/en/latest/specifications/entry-points/#entry-points
++ https://docs.python.org/3/library/importlib.metadata.html#entry-points
