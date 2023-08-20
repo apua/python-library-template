@@ -1,0 +1,22 @@
+[project]
+name = 'mylib'
+version = '0.1'
+
+# keys:
+# - authors
+# - classifiers
+# - dependencies
+# - description
+# - dynamic
+# - entry-points
+# - gui-scripts
+# - keywords
+# - license
+# - maintainers
+# - name
+# - optional-dependencies
+# - readme
+# - requires-python
+# - scripts
+# - urls
+# - version
