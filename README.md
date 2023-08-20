@@ -68,3 +68,20 @@ Ref:
 See also:
 
 + https://github.com/apua/mylib
+
+
+## pyproject.toml
+
+Let pip takes default build backend `setuptools`.
+
+Ref:
+
++ https://pip.pypa.io/en/stable/reference/build-system/pyproject-toml/#fallback-behaviour
+
+----
+
+Take "src-layout".
+
+Ref:
+
++ https://setuptools.pypa.io/en/latest/userguide/package_discovery.html#src-layout
